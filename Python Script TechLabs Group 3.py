@@ -51,4 +51,6 @@ QOLI_DF_melt = [pd.read_csv(d) for d in csv_files]
 
 QOLI_DF_melt.to_csv("QOLI2015_2023.csv")
 
+QOLI_DF_melt.to_csv(r'C:\Users\Pomrehn\Desktop\TechLabs\QOLI2015_2023.xlsx')
+
 
