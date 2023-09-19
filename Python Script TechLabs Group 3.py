@@ -3,7 +3,7 @@
 
 # In[1]:
 
-
+#1. DATA PREP
 import pandas as pd
 import numpy as np
 
@@ -53,7 +53,7 @@ QOLI_DF_melt.to_csv("QOLI2015_2023.csv")
 
 QOLI_DF_melt.to_csv(r'C:\Users\Pomrehn\Desktop\TechLabs\QOLI2015_2023.xlsx')
 
-#descriptive statistics
+#2. DESCRIPTIVE STATISTICS
 
 import pandas as pd
 import numpy as np
@@ -95,6 +95,8 @@ plt.show()
 
 #Skweness
 QOLI_DF['QOLI_2012'].skew()
+
+#3. ANOVA
 
 #ANOVA to see if there is differences between groups for the countries
 import numpy as np
@@ -211,19 +213,21 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import statsmodels.api as sm
 
+#4. LINEAR REGRESSION
+
 #perform multiple linear regression
 QOLI_DF = pd.read_excel(r'C:\Users\Pomrehn\Desktop\TechLabs\Dataset Quality of Life Index_21082023.xlsx')
 
 #replace missing values with 0
 QOLI_DF.fillna(0, inplace=True)
 
-# Check the data type of the "Country" column
+#Check the data type of the "Country" column
 print(QOLI_DF['Country'].dtype)
 
 # Ensure that the "Country" column is of string data type
 QOLI_DF['Country'] = QOLI_DF['Country'].astype(str)
 
-# Encode 'Country' as numeric using Label Encoding
+#Encode 'Country' as numeric using Label Encoding
 from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
 QOLI_DF['Country'] = label_encoder.fit_transform(QOLI_DF['Country'])
@@ -267,7 +271,7 @@ X = sm.add_constant(QOLI_DF[independent_vars])
 # Define the dependent variable
 y = QOLI_DF['Country']
 
-# Fit the multiple linear regression model
+#Fit the multiple linear regression model
 model = sm.OLS(y, X).fit()
 
 # Print the regression summary
